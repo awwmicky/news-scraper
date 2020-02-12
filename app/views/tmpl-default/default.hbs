@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="[160 max-char]" />
+    <meta name="author" content="[developer name]" />
+    <title>{{ title }}</title>
+{{!-- CSS --}}
+<link rel="stylesheet" type="text/css" href="/CSS/reset.css">
+<link rel="stylesheet" type="text/css" href="/CSS/{{ style }}">
+</head>
+
+<body> 
+
+{{!-- {{> header }} --}}
+{{{ body }}}
+{{!-- {{> footer }} --}}
+
+{{!-- JQuery --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{{!-- JavaScript --}}
+<script type="text/javascript" src="/JS/app.js"></script>
+<script type="text/javascript" src="/JS/{{ script }}"></script>
+</body>
+</html>

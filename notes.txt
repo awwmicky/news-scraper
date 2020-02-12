@@ -1,0 +1,38 @@
+< HW Notes >
+
+^ MongoDB
+- schema/model
+- News
+    - headline (string)
+    - summary (text)
+    - url (string)
+- User
+    - username (string)
+    - comment (string)
+    - date (date)
+
+^ requirement
+- each scraped article saved to DB
+- user can leave comment on article
+- can delete comments on article
+- comments viewed by everyone
+
+^ bonus
+- no repeating articles
+- no duplicate entries
+- keep DB if contains comment
+
+
+
+------------
+
+
+
+Web Scrape App
+- comment feature
+    - have single user connected to many articles
+    - setup comment structure fro user
+    - update & delete comment
+- article feature
+    - save/unsave article
+    - delete article
