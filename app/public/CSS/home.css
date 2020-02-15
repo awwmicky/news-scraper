@@ -1,0 +1,22 @@
+article.article-info {
+    border: 2px solid black;
+    width: 500px;
+    height: 200px;
+}
+
+.random-article-btn {
+    display: block;
+    margin: 0 auto;
+}
+
+/* 
+= render article =
+- article.article-info (data-article)
+- div.main-content
+    - h4.headline
+    - p.summary
+- div.sub-content
+    - button.url-link a
+    - button.save-btn
+    - p.meta-date
+*/

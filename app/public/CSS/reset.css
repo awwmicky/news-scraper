@@ -19,5 +19,22 @@ body {
     display: flex;
     flex-flow: column;
 
-    text-align: center;
+    /* text-align: center; */
+}
+
+/*  */
+
+nav.navbar ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+/*  */
+
+header,
+main 
+{
+    border: 2px solid silver;
+    max-width: 690px;
+    margin: 0 auto;
 }

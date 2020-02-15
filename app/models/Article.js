@@ -32,11 +32,6 @@ const ArticleSchema = new Schema({
 
     /*  */
 
-    saved: {
-        type: Boolean,
-        default: false
-    },
-
     comments: [{
         // text: String,
         // user: {

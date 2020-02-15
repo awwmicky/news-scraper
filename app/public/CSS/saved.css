@@ -1,0 +1,43 @@
+article.article-info {
+    border: 2px solid black;
+    width: 500px;
+    height: 200px;
+}
+
+.user-comments {
+    display: flex;
+}
+
+/* 
+= render article =
+- article.article-info
+    + (data-article)
+- div.main-content
+    - h4.headline
+    - p.summary
+- div.sub-content
+    - button.url-link a
+    - button.comment-btn
+        + (data-id)
+    - button.delete-btn 
+        + (data-article)
+    - p.meta-date
+*/
+
+/* 
+= render comments =
+^ render article
+- article.article-info
+    + (data-article)
+- div.main-content
+    - h4.headline
+    - p.summary
+- div.sub-content
+    - button.url-link a
+    - p.meta-date
+
+^ render comment
+- form.comments-form
+    - input.username-input
+    - textarea.comment-input
+*/

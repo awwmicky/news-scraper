@@ -14,6 +14,19 @@ router.get('/', (req,res) => {
     )
 })
 
+router.get('/saved', (req,res) => {
+    console.log('— Saved Page —')
+
+    res.render(
+        'saved.hbs',
+        {
+            title: 'Saved Page',
+            style: 'saved.css',
+            script: 'saved.js',
+        }
+    )
+})
+
 
 
 module.exports = router;

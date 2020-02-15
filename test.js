@@ -10,10 +10,11 @@ connection
 mongoose.connect(MONGO_URI, options).then( _ => {
 /*  */
 // viewAllArticles()
-// scrapeArticles()
+// scrapeByArticle()
+// scrapeByPage()
 // deleteArticle()
 
-createUser()
+// createUser()
 /*  */
 }).catch( err => console.log(err) )
 closeConnection = () => connection.close();
@@ -27,15 +28,71 @@ closeConnection = () => connection.close();
 const axios = require('axios');
 const cheerio = require('cheerio');
 
-// (function () {
-    // scrapeArticles()
-// })()
 
-function scrapeArticles () {
-    const url = 'https://www.developer-tech.com/news/';
+
+function scrapeByArticle () {
+    let counter = 5;
+    const url = 'https://www.developer-tech.com';
+    
+    axios
+    .get(url+'/news/')
+    .then( html => {
+        // console.log(html.data)
+        let $ = cheerio.load(html.data);
+        let articleArr = [];
+        
+        $('article').each( function () {
+            const article_id = $(this)
+                .find('div.social').attr('id');
+
+            const headline = $(this)
+                .find('a h2').text();
+            const summary = $(this)
+                .find('div.summary').text()
+                .split('\n')[1].split('. ')[0];
+            const link = $(this)
+                .find('a').attr('href');
+            let url_link = url + link;
+
+            const meta_date = $(this)
+                .find('div.meta_list > h4').text()
+                .split('\n')[2].replace(',','');
+
+            // console.log(
+                // article_id, '\n'
+                // headline, '\n'
+                // summary, '\n'
+                // url_link, '\n'
+                // meta_date, '\n'
+            // )
+
+            articleArr.push({
+                article_id,
+                headline,
+                summary,
+                url_link,
+                meta_date
+            })
+        })
+
+        // console.log(
+            // articleArr[5]
+        // )
+    })
+    .catch( err => {
+        console.log(err)
+    })
+}
+
+/*  */
+
+function scrapeByPage () {
+    const url = 'https://www.developer-tech.com';
+    const randPg = Math.floor(Math.random() * 90)
+    const query = `/news/?page=${randPg}`;
 
     axios
-    .get(url)
+    .get(url+query)
     .then( html => {
         // console.log(html.data)
         let $ = cheerio.load(html.data);
@@ -51,7 +108,7 @@ function scrapeArticles () {
                 .split('\n')[1].split('. ')[0];
             const link = $(this)
                 .find('a').attr('href');
-            let url_link = `'https://www.developer-tech.com${link}`;
+            let url_link = url + link;
 
             const meta_date = $(this)
                 .find('div.meta_list > h4').text()
@@ -65,8 +122,7 @@ function scrapeArticles () {
                 // meta_date, '\n'
             // )
 
-            let data =
-                {
+            let data = {
                 article_id,
                 headline,
                 summary,
@@ -75,7 +131,7 @@ function scrapeArticles () {
             }
 
             // checkById(data)
-            viewAllArticles(data)
+            // viewAllArticles(data)
         })
     })
     .catch( err => {
@@ -92,6 +148,7 @@ checkById = (data) => {
         console.log(result)
 
         if (result === null) {
+            console.log('create →')
             createArticleScrape(data)
         } else {
             console.log('skip...')

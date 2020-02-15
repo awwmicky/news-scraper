@@ -8,8 +8,8 @@ module.exports = exphbs.create({
     layoutsDir: path.join(
         __dirname, '/../../views/tmpl-default/'
     ),
-    // partialsDir: path.join(
-    //     __dirname, '/../../views/tmpl-parts/'
-    // ),
+    partialsDir: path.join(
+        __dirname, '/../../views/tmpl-parts/'
+    ),
     extname: '.hbs'
 });

@@ -28,11 +28,24 @@
 
 
 
-Web Scrape App
+Web Scrape App (1)
+- scrape feature
+    - scrape by article
+        - increment by array number
+    - scrape by page
+        - random number (1-90)
 - comment feature
     - have single user connected to many articles
     - setup comment structure fro user
     - update & delete comment
+- article feature
+    - save/unsave article
+    - delete article
+
+Web Scrape App (2)
+- scrape feature
+    - display all results
+- comment feature
 - article feature
     - save/unsave article
     - delete article
